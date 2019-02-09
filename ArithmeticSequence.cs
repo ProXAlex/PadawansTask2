@@ -14,8 +14,11 @@ namespace PadawansTask2
             int result = 0;
             if (count == 0)
                 return result;
-
-            result = number + add * (count - 1);
+            checked
+            {
+                result = number + add * (count - 1);
+            }
+            
             return result + Calculate(number, add, count - 1);
 
         }

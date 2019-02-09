@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using static PadawansTask2.ArithmeticSequence;
 
 namespace PadawansTask2.Tests
@@ -10,5 +11,14 @@ namespace PadawansTask2.Tests
         [TestCase(3, 2, 1, ExpectedResult = 3)]
         public int CalculateTests(int number, int add, int count)
             => Calculate(number, add, count);
+
+
+        [Test]
+        public void CalculateTest_SumOutOfRange_ThrowOverflowException()
+        {
+            Assert.Throws<OverflowException>(() => ArithmeticSequence.Calculate(int.MaxValue, 1, 2));
+        }
+
+
     }
 }
